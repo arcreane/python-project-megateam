@@ -1,9 +1,10 @@
-
 class Avion:
-    callsign: str = ""
-    y_km: float = 0.0
-    x_km: float = 0.0
-    altitude: float = 0.0
-    vitesse: float = 0.0
-    cap: float = 0.0
-    fuel: float = 0.0
+    def __init__(self, id_vol, x, y, altitude, vitesse, cap, carburant=100):
+        self.id_vol = id_vol
+        self.x = x
+        self.y = y
+        self.altitude = altitude
+        self.vitesse = vitesse
+        self.cap = cap
+        self.carburant = carburant
+
