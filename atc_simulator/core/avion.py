@@ -8,3 +8,15 @@ class Avion:
         self.cap = cap
         self.carburant = carburant
 
+    def __del__(self):
+        """(Contrainte: Destructeur __del__)"""
+        print(f"Destructeur: Avion {self.id_vol} retiré.")
+
+    def changer_altitude(self, altitude_cible):
+        if altitude_cible < 500 and self.statut != "atterrissage":
+            # (Contrainte: Leve une exception)
+            raise AltitudeError(f"Ordre dangereux pour {self.id_vol}: {altitude_cible}m.")
+        self.altitude = altitude_cible
+
+    def changer_cap(self, cap_cible):
+        self.cap = cap_cible % 360
