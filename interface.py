@@ -1,15 +1,17 @@
-from tkinter import *
-
-fenetre = Tk()
-fenetre.title("ATC")
-fenetre.configure(bg="black")
-
-fenetre.attributes("-fullscreen", True)
+import sys
+from PySide6.QtWidgets import QApplication, QWidget
 
 
-fenetre.bind("<Escape>", lambda e: fenetre.attributes("-fullscreen", False))
+class Fenetre(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("ATC")
+        self.resize(900, 600)
+        self.setStyleSheet("background-color: #000;")
 
-label = Label(fenetre, text="Hello World", bg="black", fg="white", font=("Arial", 24))
-label.pack(expand=True)
 
-fenetre.mainloop()
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    w = Fenetre()
+    w.show()
+    sys.exit(app.exec())
