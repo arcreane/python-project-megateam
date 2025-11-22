@@ -23,3 +23,4 @@ def evenements_aleatoires(espace_aerien):
                 case "rien" | _:
                     continue
     return evenements
+
