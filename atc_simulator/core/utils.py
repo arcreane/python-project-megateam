@@ -20,3 +20,4 @@ def log_action(action_type, *args, **kwargs):
     if kwargs:
         log_entry += f" Détails: {kwargs}"
     print(log_entry)
+
