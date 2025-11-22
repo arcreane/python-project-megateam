@@ -18,3 +18,10 @@ class Avion:
 
     def changer_cap(self, cap_cible):
         self.cap = cap_cible % 360
+
+    def deplacer(self, tick_duration_ms):
+        if self.statut == "atterrissage" and self.altitude < 500:
+            self.altitude = max(0, self.altitude - 20)
+            if self.altitude == 0:
+                self.statut = "atterri"
+            return
