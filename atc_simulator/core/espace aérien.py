@@ -3,18 +3,17 @@ import math
 from .avion import Avion
 class EspaceAerien:
 
-    seuil_danger_horizontal_km = 5
-    seuil_danger_vert_km = 0.3
-
     def __init__(self, radar_range_km):
         self.liste_avions = []
         self.radar_range_km = radar_range_km
-        self.zone_atterrissage = (radar_range_km / 2 - 5, 10, 10, 5)  # (x, y, z, h)
+        self.zone_atterrissage = (radar_range_km / 2, 10, 10, 10)  # (x, y, z, h)
         self.collisions_detectees = 0
         self.atterrissages_reussis = 0
 
     def ajouter_avion(self):
-        id_vol = f"{random.choice(["AF","LH","MC","AN"])}{random.randint(100, 999)}"
+        lettre = random.choice(['AF','LH','MC','AN'])
+        code = random.randint(100,999)
+        id_vol = f"{code}{lettre}"
         x = random.choice([0, self.radar_range_km])
         y = random.uniform(20, self.radar_range_km - 20)
         avion = Avion(id_vol, x, y, 8, 400, 180)
@@ -32,7 +31,9 @@ class EspaceAerien:
                 dist_horiz = math.sqrt((avion1.x - avion2.x) ** 2 + (avion1.y - avion2.y) ** 2)
                 dist_vert = abs(avion1.altitude - avion2.altitude)
 
-                if dist_horiz < 5 and dist_vert < 0.3:
+                if dist_horiz < 5 and dist_vert < 0.3 :
+                    # 5km est le seuil de distance de danger horizontal
+                    # 0.3km est le seuil de distance de danger vertical
                     avion1.statut = "crash"
                     avion2.statut = "crash"
                     self.collisions_detectees += 1
