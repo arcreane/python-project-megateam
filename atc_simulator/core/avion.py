@@ -1,7 +1,6 @@
 import math
 
 class Avion:
-
     def __init__(self, id_vol, x, y, altitude, vitesse, cap, carburant=100):
         self.id_vol = id_vol
         self.x = x
