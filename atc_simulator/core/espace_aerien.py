@@ -13,7 +13,7 @@ class EspaceAerien:
     def ajouter_avion(self):
         lettre = random.choice(['AF','LH','MC','AN'])
         code = random.randint(100,999)
-        id_vol = f"{code}{lettre}"
+        id_vol = f"{lettre}{code}"
         x = random.choice([0, self.radar_range_km])
         y = random.uniform(20, self.radar_range_km - 20)
         avion = Avion(id_vol, x, y, 8, 400, 180)
