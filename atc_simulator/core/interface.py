@@ -1,4 +1,3 @@
-# interface.py — étape 2
 from PySide6.QtWidgets import (
     QMainWindow, QWidget, QHBoxLayout, QVBoxLayout,
     QListWidget, QListWidgetItem, QLabel, QGroupBox, QStatusBar
