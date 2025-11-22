@@ -1,5 +1,7 @@
+import math
+
 class Avion:
-   import math
+
     def __init__(self, id_vol, x, y, altitude, vitesse, cap, carburant=100):
         self.id_vol = id_vol
         self.x = x
@@ -8,13 +10,12 @@ class Avion:
         self.vitesse = vitesse
         self.cap = cap
         self.carburant = carburant
+        self.statut = "en vol"
 
     def __del__(self):
         print(f"Destructeur: Avion {self.id_vol} retiré.")
 
     def changer_altitude(self, altitude_cible):
-        if altitude_cible < 500 and self.statut != "atterrissage":
-            raise AltitudeError(f"Ordre dangereux pour {self.id_vol}: {altitude_cible}m.")
         self.altitude = altitude_cible
 
     def changer_cap(self, cap_cible):
