@@ -25,3 +25,10 @@ class Avion:
             if self.altitude == 0:
                 self.statut = "atterri"
             return
+
+        temps_h = tick_duration_ms / (1000 * 60 * 60)
+        distance = self.vitesse * temps_h
+        angle_rad = math.radians(90 - self.cap)
+
+        self.x += distance * math.cos(angle_rad)
+        self.y += distance * math.sin(angle_rad)
