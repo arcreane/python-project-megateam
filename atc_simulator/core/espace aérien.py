@@ -1,6 +1,6 @@
 import random
 import math
-
+from .avion import Avion
 class EspaceAerien:
 
     seuil_danger_horizontal_km = 5
