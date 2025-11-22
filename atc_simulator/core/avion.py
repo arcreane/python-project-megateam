@@ -1,4 +1,5 @@
 class Avion:
+   import math
     def __init__(self, id_vol, x, y, altitude, vitesse, cap, carburant=100):
         self.id_vol = id_vol
         self.x = x
@@ -32,3 +33,4 @@ class Avion:
 
         self.x += distance * math.cos(angle_rad)
         self.y += distance * math.sin(angle_rad)
+
