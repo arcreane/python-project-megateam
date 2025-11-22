@@ -1,16 +1,25 @@
 import random
 
-def generer_evenement_aleatoire(espace_aerien):
-    if not espace_aerien.liste_avions or random.randint(0, 200) != 42:
-        return None
+def evenements_aleatoires(espace_aerien):
+    if not espace_aerien.liste_avions:
+        return []
 
-    type_evenement = random.choice(["panne", "rien"])
-    avion_concerne = random.choice(espace_aerien.liste_avions)
+    evenements = []
 
-    match type_evenement:
-        case "panne":
-            if avion_concerne.statut == "en-vol":
-                avion_concerne.statut = "urgence"
-                return f"Panne technique: {avion_concerne.id_vol}!"
-        case "rien" | _:
-            return None
+    for avion in espace_aerien.liste_avions:
+        if random.random() < 0.1:
+            type_evenement = random.choice(["panne", "météo", "détresse", "rien"])
+
+            match type_evenement:
+                case "panne":
+                    if avion.statut == "en-vol":
+                        avion.statut = "urgence"
+                        evenements.append(f"Panne technique : {avion.id_vol} !")
+                case "météo":
+                    evenements.append(f"Conditions météo difficiles pour {avion.id_vol}.")
+                case "détresse":
+                    avion.statut = "détresse"
+                    evenements.append(f"{avion.id_vol} en détresse !")
+                case "rien" | _:
+                    continue
+    return evenements
