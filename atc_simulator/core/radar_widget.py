@@ -1,6 +1,8 @@
 from PySide6.QtWidgets import QWidget
 from PySide6.QtGui import QPainter, QColor, QPen, QFont
-from PySide6.QtCore import Qt, QRectF, Sig
+from PySide6.QtCore import Qt, QRectF, Signal
+import math
+
 
 class RadarWidget(QWidget):
     avion_selectionne_radar = Signal(str)
@@ -18,6 +20,7 @@ class RadarWidget(QWidget):
         return px, py
 
     def _px_to_sim(self, px, py):
+        """Convertit des pixels en coordonnées logiques (0..taille)."""
         x = px / self.width() * self.taille
         y = (1 - py / self.height()) * self.taille
         return x, y
