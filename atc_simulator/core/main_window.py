@@ -49,27 +49,27 @@ class MainWindow(QMainWindow):
 
         self._demarrer_simulation()
 
-    def _demarrer_simulation(self):
+    def demarrer_simulation(self):
         self.espace.ajouter_avion()
         self.timer_tick.start(self.tick_ms)
         self.timer_spawn.start(8000)  # un avion toutes les 8 secondes
 
 
-    def _selectionner_par_id(self, id_vol: str):
+    def selectionner_par_id(self, id_vol: str):
         avion = self.espace.selectionner_par_id(id_vol)
         self.controls.set_avion(avion)
 
-    def _changer_cap(self, cap: int):
+    def changer_cap(self, cap: int):
         avion = self.espace.get_avion_selectionne()
         if avion:
             avion.changer_cap(cap)
 
-    def _changer_altitude(self, alt: int):
+    def changer_altitude(self, alt: int):
         avion = self.espace.get_avion_selectionne()
         if avion:
             avion.changer_altitude(alt)
 
-    def _autoriser_atterrissage(self):
+    def autoriser_atterrissage(self):
         avion = self.espace.get_avion_selectionne()
         if avion:
             avion.demarrer_atterrissage()
@@ -80,7 +80,7 @@ class MainWindow(QMainWindow):
 
 
 
-    def _tick(self):
+    def tick(self):
         self.espace.mettre_a_jour(self.tick_ms)
 
         if self.espace.detecter_collisions():
