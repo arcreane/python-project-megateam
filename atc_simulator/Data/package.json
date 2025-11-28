@@ -1,6 +1,0 @@
-{
-  "window_title": "ATC Simulator (Simplifié)",
-  "window_size": [1100, 700],
-  "simulation_tick_ms": 100,
-  "radar_range_km": 75
-}
