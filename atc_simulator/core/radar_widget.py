@@ -13,13 +13,13 @@ class RadarWidget(QWidget):
         self.taille = taille
         self.setMinimumSize(400, 400)
 
-    def _sim_to_px(self, x, y):
+    def sim_to_px(self, x, y):
 
         px = (x / self.taille) * self.width()
         py = (1 - y / self.taille) * self.height()
         return px, py
 
-    def _px_to_sim(self, px, py):
+    def px_to_sim(self, px, py):
         """Convertit des pixels en coordonnées logiques (0..taille)."""
         x = px / self.width() * self.taille
         y = (1 - py / self.height()) * self.taille
@@ -87,3 +87,4 @@ class RadarWidget(QWidget):
             if dist < 3:
                 self.avion_selectionne_radar.emit(avion.id_vol)
                 break
+

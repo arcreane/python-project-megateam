@@ -65,19 +65,20 @@ class ControlsPanel(QWidget):
             self.txt_alt.setText(str(avion.altitude))
             self._set_actif(True)
 
-    def _on_cap(self):
+    def on_cap(self):
         try:
             cap = int(self.txt_cap.text())
         except ValueError:
             return
         self.instruction_cap.emit(cap)
 
-    def _on_alt(self):
+    def on_alt(self):
         try:
             alt = int(self.txt_alt.text())
         except ValueError:
             return
         self.instruction_altitude.emit(alt)
 
-    def _on_atterrir(self):
+    def on_atterrir(self):
         self.instruction_atterrir.emit()
+

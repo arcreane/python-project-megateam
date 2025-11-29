@@ -36,7 +36,7 @@ class InfoPanel(QWidget):
         layout.addWidget(avions_group)
         layout.addStretch()
 
-    def _on_avion_clique(self, item: QListWidgetItem):
+    def on_avion_clique(self, item: QListWidgetItem):
         id_vol = item.data(Qt.UserRole)
         self.avion_selectionne.emit(id_vol)
 
