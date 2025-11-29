@@ -44,7 +44,7 @@ class EspaceAerien:
             for j in range(i + 1, len(actifs)):
                 a1 = actifs[i]
                 a2 = actifs[j]
-                dist_h = math.hypot(a1.x - a2.x, a1.y - a2.y)
+                dist_h = math.sqrt((a1.x - a2.x)**2 + (a1.y - a2.y)**2)
                 dist_v = abs(a1.altitude - a2.altitude)
 
                 if dist_h < 3 and dist_v < 300:
