@@ -40,9 +40,9 @@ class ControlsPanel(QWidget):
         layout.addStretch()
 
 
-        self.btn_cap.clicked.connect(self._on_cap)
-        self.btn_alt.clicked.connect(self._on_alt)
-        self.btn_atterrir.clicked.connect(self._on_atterrir)
+        self.btn_cap.clicked.connect(self.on_cap)
+        self.btn_alt.clicked.connect(self.on_alt)
+        self.btn_atterrir.clicked.connect(self.on_atterrir)
 
         self._set_actif(False)
 

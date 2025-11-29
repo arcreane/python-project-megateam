@@ -20,7 +20,6 @@ class RadarWidget(QWidget):
         return px, py
 
     def px_to_sim(self, px, py):
-        """Convertit des pixels en coordonnées logiques (0..taille)."""
         x = px / self.width() * self.taille
         y = (1 - py / self.height()) * self.taille
         return x, y
@@ -44,8 +43,8 @@ class RadarWidget(QWidget):
 
 
         zx, zy, zw, zh = self.espace.zone_atterrissage
-        x1, y1 = self._sim_to_px(zx, zy)
-        x2, y2 = self._sim_to_px(zx + zw, zy + zh)
+        x1, y1 = self.sim_to_px(zx, zy)
+        x2, y2 = self.sim_to_px(zx + zw, zy + zh)
         rect = QRectF(x1, y2, x2 - x1, y1 - y2)  # inversion Y
 
         painter.setPen(QPen(QColor("green"), 2, Qt.DashLine))
@@ -53,7 +52,7 @@ class RadarWidget(QWidget):
 
 
         for avion in self.espace.liste_avions:
-            px, py = self._sim_to_px(avion.x, avion.y)
+            px, py = self.sim_to_px(avion.x, avion.y)
 
             if avion.selectionne:
                 color = QColor("white")
