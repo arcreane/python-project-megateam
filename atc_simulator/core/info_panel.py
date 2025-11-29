@@ -28,7 +28,7 @@ class InfoPanel(QWidget):
         avions_group = QGroupBox("AVIONS EN VOL")
         avions_layout = QVBoxLayout()
         self.liste_avions_widget = QListWidget()
-        self.liste_avions_widget.itemClicked.connect(self._on_avion_clique)
+        self.liste_avions_widget.itemClicked.connect(self.on_avion_clique)
         avions_layout.addWidget(self.liste_avions_widget)
         avions_group.setLayout(avions_layout)
 

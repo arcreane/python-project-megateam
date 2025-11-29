@@ -39,7 +39,7 @@ class ControlsPanel(QWidget):
         layout.addWidget(self.btn_atterrir)
         layout.addStretch()
 
-        # Connexions internes
+
         self.btn_cap.clicked.connect(self._on_cap)
         self.btn_alt.clicked.connect(self._on_alt)
         self.btn_atterrir.clicked.connect(self._on_atterrir)
