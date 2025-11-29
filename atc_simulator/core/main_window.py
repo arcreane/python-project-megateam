@@ -34,20 +34,20 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(central)
 
 
-        self.info_panel.avion_selectionne.connect(self._selectionner_par_id)
-        self.radar.avion_selectionne_radar.connect(self._selectionner_par_id)
-        self.controls.instruction_cap.connect(self._changer_cap)
-        self.controls.instruction_altitude.connect(self._changer_altitude)
-        self.controls.instruction_atterrir.connect(self._autoriser_atterrissage)
+        self.info_panel.avion_selectionne.connect(self.selectionner_par_id)
+        self.radar.avion_selectionne_radar.connect(self.selectionner_par_id)
+        self.controls.instruction_cap.connect(self.changer_cap)
+        self.controls.instruction_altitude.connect(self.changer_altitude)
+        self.controls.instruction_atterrir.connect(self.autoriser_atterrissage)
 
 
         self.timer_tick = QTimer(self)
-        self.timer_tick.timeout.connect(self._tick)
+        self.timer_tick.timeout.connect(self.tick)
 
         self.timer_spawn = QTimer(self)
         self.timer_spawn.timeout.connect(self.espace.ajouter_avion)
 
-        self._demarrer_simulation()
+        self.demarrer_simulation()
 
     def demarrer_simulation(self):
         self.espace.ajouter_avion()
